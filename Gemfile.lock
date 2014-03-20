@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    posix-spawn (0.3.8)
+    webkit_remote (0.5.3)
+      posix-spawn (>= 0.3.8)
+      ws_sync_client (>= 0.1.1)
+    websocket (1.1.2)
+    websocket-native (1.0.0)
+    ws_sync_client (0.1.1)
+      websocket (>= 1.1.2)
+      websocket-native (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  webkit_remote (>= 0.5.3)

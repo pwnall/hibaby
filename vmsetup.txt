@@ -1,0 +1,10 @@
+In the VM terminal:
+
+login: root
+password: mit
+
+cat "cpc" > /etc/hostname
+yum install -y avahi
+
+# ifconfig, for debugging network setup issues.
+yum install -y net-tools
