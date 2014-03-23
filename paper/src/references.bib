@@ -1,12 +1,297 @@
+
+.. ##################
+.. Data set sources
+.. ##################
+
 @misc{dms2014,
   title={DateMySchool},
-  howpublished="\url{https://datemyschool.com/}",
+  how published="\url{https://datemyschool.com/}",
   year={2014},
   note={[Online; accessed 21-March-2014]}
 }
+
 @misc{fb2014,
   title={Facebook},
   howpublished="\url{https://facebook.com/}",
   year={2014},
   note={[Online; accessed 21-March-2014]}
 }
+
+@misc{chrome-rdb,
+  title={Chrome Remote Debugging Protocol},
+  howpublished="\url{https://developers.google.com/chrome-developer-tools/docs/debugger-protocol}",
+  year={2014},
+  note={[Online; accessed 21-March-2014]}
+}
+
+@inproceedings{Besmer:2009:TPC:1520340.1520704,
+  author = {Besmer, Andrew and Lipford, Heather},
+  title = {Tagged Photos: Concerns, Perceptions, and Protections},
+  booktitle = {CHI '09 Extended Abstracts on Human Factors in Computing Systems},
+  series = {CHI EA '09},
+  year = {2009},
+  isbn = {978-1-60558-247-4},
+  location = {Boston, MA, USA},
+  pages = {4585--4590},
+  numpages = {6},
+  url = {http://doi.acm.org/10.1145/1520340.1520704},
+  doi = {10.1145/1520340.1520704},
+  acmid = {1520704},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {facebook, online photo sharing, photos, privacy, social networking communities},
+} 
+
+.. ##################
+.. Related work
+.. ##################
+
+.. de-anonymization
+
+@INPROCEEDINGS{deanonsocial1, 
+  author={Wondracek, G. and Holz, T. and Kirda, E. and Kruegel, C.}, 
+  booktitle={Security and Privacy (SP), 2010 IEEE Symposium on}, 
+  title={A Practical Attack to De-anonymize Social Network Users}, 
+  year={2010}, 
+  month={May}, 
+  pages={223-238}, 
+  doi={10.1109/SP.2010.21}, 
+ISSN={1081-6011},}
+
+@INPROCEEDINGS{deanonsocial2, 
+  author={Narayanan, A. and Shmatikov, V.}, 
+  booktitle={Security and Privacy, 2009 30th IEEE Symposium on}, 
+  title={De-anonymizing Social Networks}, 
+  year={2009}, 
+  month={May}, 
+  pages={173-187}, 
+  keywords={data mining;data privacy;graph theory;social networking (online);anonymized social network graphs;application developers;data mining researchers;de-anonymizing social networks;network topology;re-identification algorithm;anonymity;privacy;social networks}, 
+  doi={10.1109/SP.2009.22}, 
+ISSN={1081-6011},}
+
+@inproceedings{locationprivacy,
+  author = {Fechner, Thore and Kray, Christian},
+  title = {Attacking Location Privacy: Exploring Human Strategies},
+  booktitle = {Proceedings of the 2012 ACM Conference on Ubiquitous Computing},
+  series = {UbiComp '12},
+  year = {2012},
+  isbn = {978-1-4503-1224-0},
+  location = {Pittsburgh, Pennsylvania},
+  pages = {95--98},
+  numpages = {4},
+  url = {http://doi.acm.org/10.1145/2370216.2370232},
+  doi = {10.1145/2370216.2370232},
+  acmid = {2370232},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {deanonymization, location privacy, re-identification},
+}
+
+.. ##################
+.. Crawling non-anonymous social networks; impersonating legitimate users in an automated crawl
+.. ##################
+
+@inproceedings{Bilge:2009:YCB:1526709.1526784,
+  author = {Bilge, Leyla and Strufe, Thorsten and Balzarotti, Davide and Kirda, Engin},
+  title = {All Your Contacts Are Belong to Us: Automated Identity Theft Attacks on Social Networks},
+  booktitle = {Proceedings of the 18th International Conference on World Wide Web},
+  series = {WWW '09},
+  year = {2009},
+  isbn = {978-1-60558-487-4},
+  location = {Madrid, Spain},
+  pages = {551--560},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/1526709.1526784},
+  doi = {10.1145/1526709.1526784},
+  acmid = {1526784},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {identity theft, social network security},
+} 
+
+.. ##################
+.. identifying images
+.. ##################
+
+@inproceedings{nearduplicateimage1,
+  author = {Dong, Wei and Wang, Zhe and Charikar, Moses and Li, Kai},
+  title = {High-confidence Near-duplicate Image Detection},
+  booktitle = {Proceedings of the 2Nd ACM International Conference on Multimedia Retrieval},
+  series = {ICMR '12},
+  year = {2012},
+  isbn = {978-1-4503-1329-2},
+  location = {Hong Kong, China},
+  pages = {1:1--1:8},
+  articleno = {1},
+  numpages = {8},
+  url = {http://doi.acm.org/10.1145/2324796.2324798},
+  doi = {10.1145/2324796.2324798},
+  acmid = {2324798},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {entropy, graph cut, near-duplicate, query expansion},
+} 
+
+
+.. Easy, over-the-counter approach
+.. *DOES* account for ppi differences
+.. Does not account for crop and scale variations1
+.. Perceptual hash - pHash
+.. reduce suze, color. average colors. Now hash.
+
+@misc{phash,
+  title={pHash: The open source perceptual hash library},
+  how published="\url{http://www.phash.org/}",
+  note={[Online; accessed 21-March-2014]}
+}
+
+.. Similarity metric for differently cropped, differently aligned images
+.. Phase corellation, normalized cross-correlation
+.. Registration of images
+
+@ARTICLE{957286, 
+  author={Stone, H.S. and Orchard, M.T. and Chang, E.-C. and Martucci, S.A.}, 
+  journal={Geoscience and Remote Sensing, IEEE Transactions on}, 
+  title={A fast direct Fourier-based algorithm for subpixel registration of images}, 
+  year={2001}, 
+  month={Oct}, 
+  volume={39}, 
+  number={10}, 
+  pages={2235-2243}, 
+  keywords={geophysical signal processing;geophysical techniques;image registration;interpolation;remote sensing;terrain mapping;algorithm;aliasing;fast direct Fourier based algorithm;geophysical measurement technique;image processing;image registration;image-to-image registration;land surface;remote sensing;spline interpolation;subpixel registration;terrain mapping;Fourier transforms;Fuses;Image registration;Interpolation;Iterative algorithms;Iterative methods;Lighting;National electric code;Pixel;Spline}, 
+  doi={10.1109/36.957286}, 
+ISSN={0196-2892},}
+
+@misc{registration3,
+  title={Registering an Image Using Normalized Cross-Correlation},
+  how published="\url{http://www.mathworks.com/products/demos/image/cross_correlation/imreg.html}",
+  note={[Online; accessed 21-March-2014]}
+}
+
+.. ##################
+.. Implications
+.. ##################
+
+.. bullshit
+
+@article{webisnotsecure,
+  author = {Grossman, Jeremiah},
+  title = {The Web Won'T Be Safe or Secure Until We Break It},
+  journal = {Queue},
+  issue_date = {November 2012},
+  volume = {10},
+  number = {11},
+  month = nov,
+  year = {2012},
+  issn = {1542-7730},
+  pages = {10:10--10:15},
+  articleno = {10},
+  numpages = {6},
+  url = {http://doi.acm.org/10.1145/2390756.2390758},
+  doi = {10.1145/2390756.2390758},
+  acmid = {2390758},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+} 
+
+.. essay on re-identification (deanonymization) as a science
+
+@misc{reidentification1,
+  title={Reidentification as Basic Science (Re-Identification Symposium)},
+  howpublished="\url{http://blogs.law.harvard.edu/billofhealth/2013/05/26/reidentification-as-basic-science/}",
+  year={2013},
+  note={[Online; accessed 21-March-2014]}
+}
+
+@inproceedings{protectidentity1,
+  author = {Clau{\$\beta\$}, Sebastian and Kesdogan, Dogan and K\"{o}lsch, Tobias},
+  title = {Privacy Enhancing Identity Management: Protection Against Re-identification and Profiling},
+  booktitle = {Proceedings of the 2005 Workshop on Digital Identity Management},
+  series = {DIM '05},
+  year = {2005},
+  isbn = {1-59593-232-1},
+  location = {Fairfax, VA, USA},
+  pages = {84--93},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/1102486.1102501},
+  doi = {10.1145/1102486.1102501},
+  acmid = {1102501},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {identity management, privacy},
+} 
+
+@inproceedings{protectidentity2,
+  author = {Wolinsky, David Isaac and Syta, Ewa and Ford, Bryan},
+  title = {Hang with your buddies to resist intersection attacks},
+  booktitle = {Proceedings of the 2013 ACM SIGSAC conference on Computer \&\#38; communications security},
+  series = {CCS '13},
+  year = {2013},
+  isbn = {978-1-4503-2477-9},
+  location = {Berlin, Germany},
+  pages = {1153--1166},
+  numpages = {14},
+  url = {http://doi.acm.org/10.1145/2508859.2516740},
+  doi = {10.1145/2508859.2516740},
+  acmid = {2516740},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {anonymity, disclosure, intersection, pseudonymity},
+} 
+
+@inproceedings{motivationforanonymity,
+  author = {Kang, Ruogu and Brown, Stephanie and Kiesler, Sara},
+  title = {Why Do People Seek Anonymity on the Internet?: Informing Policy and Design},
+  booktitle = {Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
+  series = {CHI '13},
+  year = {2013},
+  isbn = {978-1-4503-1899-0},
+  location = {Paris, France},
+  pages = {2657--2666},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/2470654.2481368},
+  doi = {10.1145/2470654.2481368},
+  acmid = {2481368},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {anonymity, information disclosure, online community, privacy},
+} 
+
+@article{limitcrawling1,
+  author = {Mondal, Mainack and Viswanath, Bimal and Clement, Allen and Druschel, Peter and Gummadi, Krishna P. and Mislove, Alan and Post, Ansley},
+  title = {Limiting Large-scale Crawls of Social Networking Sites},
+  journal = {SIGCOMM Comput. Commun. Rev.},
+  issue_date = {August 2011},
+  volume = {41},
+  number = {4},
+  month = aug,
+  year = {2011},
+  issn = {0146-4833},
+  pages = {398--399},
+  numpages = {2},
+  url = {http://doi.acm.org/10.1145/2043164.2018487},
+  doi = {10.1145/2043164.2018487},
+  acmid = {2018487},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {social network-based sybil defense, social networks, sybil attacks},
+} 
+
+@inproceedings{limitcrawling2,
+  author = {Mondal, Mainack and Viswanath, Bimal and Clement, Allen and Druschel, Peter and Gummadi, Krishna P. and Mislove, Alan and Post, Ansley},
+  title = {Defending Against Large-scale Crawls in Online Social Networks},
+  booktitle = {Proceedings of the 8th International Conference on Emerging Networking Experiments and Technologies},
+  series = {CoNEXT '12},
+  year = {2012},
+  isbn = {978-1-4503-1775-7},
+  location = {Nice, France},
+  pages = {325--336},
+  numpages = {12},
+  url = {http://doi.acm.org/10.1145/2413176.2413214},
+  doi = {10.1145/2413176.2413214},
+  acmid = {2413214},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {network-based sybil defense, social networks, sybil attacks},
+} 
+
