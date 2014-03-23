@@ -5,6 +5,8 @@ GEM
     webkit_remote (0.5.3)
       posix-spawn (>= 0.3.8)
       ws_sync_client (>= 0.1.1)
+    webkit_remote_unstable (0.1.2)
+      webkit_remote (>= 0.5.2)
     websocket (1.1.2)
     websocket-native (1.0.0)
     ws_sync_client (0.1.1)
@@ -16,3 +18,4 @@ PLATFORMS
 
 DEPENDENCIES
   webkit_remote (>= 0.5.3)
+  webkit_remote_unstable (>= 0.1.2)

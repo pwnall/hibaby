@@ -65,6 +65,11 @@ def fb_issue_search(client, query_string)
   end
   input_box = input_boxes[0]
 
+  input_control = input_box
+  until /(^|\s)textInput(\s|$)/ =~ input_control.attributes['class']
+    input_control = element_parent client, input_control
+  end
+
   input_fields = client.dom_root.query_selector_all(
       'input[type="text"][placeholder*="Search"][placeholder*="people"]')
   if input_fields.length != 1

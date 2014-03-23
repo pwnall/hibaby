@@ -1,0 +1,7 @@
+pdf
+tmp
+*.synctex.gz
+
+*.sw*
+.DS_Store
+

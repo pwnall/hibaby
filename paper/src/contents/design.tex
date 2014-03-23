@@ -1,0 +1,12 @@
+\section{Design}
+\label{sec:design}
+
+Fake accounts at MIT, DMS and FB. Created an artificial person using
+average-of-faces face, common names (ref: big bang theory) and a fake birthday.
+No unfair advantages, such as using our real social network accounts to extract
+more information.
+
+Extracted information using Chrome's remote debugging interface, via a
+custom-coded Ruby gem. Crawlers use each site's search functionality, and are
+coded as generically as possible. For example, the login code is identical for
+DMS and FB.

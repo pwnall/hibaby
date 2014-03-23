@@ -1,4 +1,5 @@
 require 'webkit_remote'
+require 'webkit_remote_unstable'
 
 # Common functions for driving a site via the WebkitRemote debugging client.
 module RemoteControls
@@ -48,6 +49,19 @@ def click_element(client, dom_node)
 END_JS
   result = client.remote_eval('window').bound_call js_code, dom_node.js_object
   result.release
+end
+
+# Clicks a DOM element by generating mouse events.
+#
+# @param {WebkitRemote::Client} client
+# @param {WebKitRemote::Client::DomNode} dom_node
+def hard_click_element(client, dom_node)
+  box = dom_node.box_model
+  xc = box.content.x.inject(0) { |a, b| a + b } / box.content.x.length
+  yc = box.content.y.inject(0) { |a, b| a + b } / box.content.y.length
+  client.mouse_event :move, xc, yc
+  client.mouse_event :down, xc, yc, button: :left, clicks: 1
+  client.mouse_event :up, xc, yc, button: :left, clicks: 1
 end
 
 # The coordinates of a bounding box for an element.
