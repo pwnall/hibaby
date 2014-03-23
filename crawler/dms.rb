@@ -195,7 +195,7 @@ end
 # @param {WebkitRemote::Client} client
 # @param {Hash<String, String>} criteria the search criteria, e.g.
 #     "Schools": "MIT"
-# @yield
+# @yield {Hash<Symbol, Object>} each search result
 def dms_search(client, criteria)
   dms_issue_search client, criteria
 
@@ -220,6 +220,7 @@ def dms_search(client, criteria)
         break
       rescue RuntimeError
         # The DOM got modified as we were scanning the page.
+        client.clear_all
       end
     end
 

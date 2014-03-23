@@ -60,8 +60,11 @@ def hard_click_element(client, dom_node)
   xc = box.content.x.inject(0) { |a, b| a + b } / box.content.x.length
   yc = box.content.y.inject(0) { |a, b| a + b } / box.content.y.length
   client.mouse_event :move, xc, yc
-  client.mouse_event :down, xc, yc, button: :left, clicks: 1
-  client.mouse_event :up, xc, yc, button: :left, clicks: 1
+  sleep 0.25  # HACK(pwnall): figure out a better way to find consumed events
+  client.mouse_event :down, xc, yc, button: :left
+  sleep 0.25
+  client.mouse_event :up, xc, yc, button: :left
+  sleep 0.25
 end
 
 # The coordinates of a bounding box for an element.
@@ -137,7 +140,23 @@ END_JS
   parent_node
 end
 
-# The parent of a DOM element.
+# Checks if a DOM element matches a CSS selector.
+#
+# @param {WebkitRemote::Client} client
+# @param {WebKitRemote::Client::DomNode} dom_node
+# @param {String} selector a CSS selector
+# @return {Boolean} true if the given element matches the CSS selector, false
+#     otherwise
+def element_matches(client, dom_node, selector)
+  js_code = <<END_JS
+  function (domNode, selector) {
+    return domNode.matches(selector);
+  }
+END_JS
+  client.remote_eval('window').bound_call js_code, dom_node.js_object, selector
+end
+
+# Gives the input focus to a DOM element.
 #
 # @param {WebkitRemote::Client} client
 # @param {WebKitRemote::Client::DomNode} dom_node

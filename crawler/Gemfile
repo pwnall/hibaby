@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'webkit_remote', '>= 0.5.3'
-gem 'webkit_remote_unstable', '>= 0.1.2'
+gem 'webkit_remote', '>= 0.5.5'
+gem 'webkit_remote_unstable', '>= 0.1.3'
 
