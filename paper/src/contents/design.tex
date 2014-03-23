@@ -19,7 +19,7 @@ We are now able to access both DMS and Facebook using \textbf{FU}'s fictitious a
 Obviously, to de-anonymize DMS profiles on the large scale, we must be able to automate all repeated interaction with the site.
 Similarly, we must be able to programmatically extract a large set of Facebook profiles expected to overlap with the extracted DMS profiles.
 Creating HTTP sessions within a Python or Ruby script is easy, but is not robust against detection, throttling, and is therefore good approach to extracting large amounts of information from either DMS or Facebook.
-While many sophisticated techniques exist to instrument or impersonate human user sessions, ranging from screen manipulation (TODO: cite) to browser impersonation over HTTP requests (TODO: cite), we found our approach to be highly effective and very simple.
+While many sophisticated techniques exist to instrument or impersonate human user sessions, ranging from screen manipulation \cite{yeh2009sikuli} to browser impersonation over HTTP requests (TODO: cite), we found our approach to be highly effective and very simple.
 We use the Chromium remote debugging interface~\cite{chrome-rdb} to instrument a real browser session and programmatically specify user input.
 This approach to web crawling uses each site's built-in search functionality in the same way a human user would, meaning the web crawler sessions are virtually impossible to detect at the server.
 We effectively impersonate a tablet user, thereby obviating the need to falsify mouse hover data.
@@ -106,6 +106,6 @@ Fortunately, we found a deceptively simple and accurate means of matching profil
 We theorize that users rely on a small set of ``good'' photographs for profile photos where they attempt to look their best.
 When creating a DMS profile, the users must find a recent high-quality photograph, and we conjecture rely on their Facebook profile photos to select a recent ``good'' image.
 As demonstrated in our Results~\ref{sec:results}, the conjecture holds for our initial experiments.
-We expect the profile pictures to have been resized and recoded in a lossy way from the original photographs uploaded by the users. 
+We expect the profile pictures to have been resized and recoded in a lossy way from the original photographs uploaded by the users.
 While we cannot simply compare the files, we are nevertheless able to efficiently compare profile photos using the pHash~\cite{phash} library, calculating perceptual hashes of each photo in $D$ and $F$.
 Finally, we simply enumerate all pairs $(d_u \in D, f_u \in F)$ such that $d_u$ and $f_u$ have a ``similar'' photo hash (meaning with overwhelming probability an identical profile photo).
