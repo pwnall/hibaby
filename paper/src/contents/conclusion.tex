@@ -3,32 +3,20 @@
 
 Sites operating under the promise of anonymity, be it explicit or implied, should do more to educate their users.
 Users place some trust in a site when creating a profile in that they delegate the responsibility of maintaining privacy to the site.
-These users often fail to understand that the information they share publicly may be enough to de-anonymize their profile, making any mesures the site implements to protect their privacy irrelevant.
+These users often fail to understand that the information they share publicly may be enough to de-anonymize their profile, making any measures the site implements to protect their privacy irrelevant. By aggregating multiple data sources, assuming an attacker is able to identify users across data sets, privacy ceases being a simple argument, as the amount of personally identifiable information grows.
 
-By aggregating 
-If an attacker is able to identify users 
-
-
- that the site works to maintain their promise of privacy, but often fail to understand that the information they make publically 
-
-
-In this work, we demonstrate a simple technique to defeat the anonymizing measures of DMS by impersonating a legitimate user using a Chromium remote debugging interface and extracting user data for an entire locale in bulk.
+In this work, we exploit a common behavior among users (namely, re-use of profile photographs) to de-anonymize a popular dating site (DMS - DateMySchool).
+We demonstrate a simple technique to defeat the anonymizing measures of DMS by impersonating a legitimate user using a Chromium remote debugging interface and extracting user data for an entire locale in bulk.
 We then use straightforward crawling of a non-anonymous social network (in this work, we use Facebook) to extract public photos and basic identifying information in the same locale.
-Conjecturing that many users re-use a small set of photographs for profile pictures, we use the pHash library to 
+Conjecturing that many users re-use a small set of photographs for profile pictures, we use the pHash library to implement image comparison and enumerate pairs of accounts on DMS and Facebook that share profile photos.
 
-A few simple 
-A simple extension to the flow for creating an anonymous profile would protect 
-
-(DMS already requests a user's Facebook account a sign-up, meaning the site has all information needed to warn vulnerable users)
-
-is easy).
-
-
-Sites that promise anonymity should do more to educate their users. Check pic
-against facebook pictures using phash. (dms asks for fb during signup anyway)
-Check that profile name doesn't include real name.
+A simple extension to the flow for creating an anonymous profile would protect users from creating this vulnerability. While DMS is able to go as far as using pHash themselves to ascertain the profile picture is not the same as the one used on Facebook, even a short message warning users of this vulnerability would likely suffice.
 
 \section{Future Work}
 \label{sec:related_futurework}
 
-Bla
+A straightforward extension of this work is to apply the method introduced in this paper to additional schools on DMS, and additional dating sites, such as OK Cupid~\cite{okc}, or Match.com~\cite{match}.
+
+Another direction of future work is to improve the image comparison we rely on to de-anonymize users.
+While pHash is very good at finding identical images in different formats and scales, it is not robust to variations in crop and registration (something that many sites allow the users to manipulate).
+A robust image comparison metric should be able to normalize image registration. 
