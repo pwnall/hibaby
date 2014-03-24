@@ -88,7 +88,7 @@ end
 
 In crawling DMS, we use the crawler to automatically login, navigate to the search page, and enumerate URLs for all profiles affiliated with a given school. We also download and extract all profile photos affiliated with each account, and store an entry consisting of \texttt{[profile link, photo(s)]} for each DMS user at a given school in an unordered set.
 
-Crawling Facebook is slightly more challenging, as it does not quite allow all members of a school to be enumerated easily. TODO: Facebook crwl details.
+Crawling Facebook is slightly more challenging, as it does not quite allow all members of a school to be enumerated easily. We are, however, able to enumerate all users in the group affiliated with the school - a crude but effective approximation.
 Just as with DMS, we extract all profile photographs associated with each account we record.
 We store an entry consisting of \texttt{[name, email, photo(s)]} for each Facebook account expected to overlap with the DMS data set we created above.
 
