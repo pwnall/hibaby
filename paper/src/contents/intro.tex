@@ -28,7 +28,7 @@ In this work, we illustrate that this is indeed a common problem by de-anonymizi
   \caption{
     A DateMySchool search for all the female Tufts students.
   }
-  \label{fig:fb}
+  \label{fig:dms_search}
 \end{figure}
 
 \begin{figure}[hbtp]
@@ -37,16 +37,16 @@ In this work, we illustrate that this is indeed a common problem by de-anonymizi
     A Facebook search for all the female Tufts students. The results are
     matched against the DateMySchool results for female students.
   }
-  \label{fig:fb}
+  \label{fig:fb_search}
 \end{figure}
 
-% TODO: Tufts?
-We enumerate a large set of (semi)-public but anonymous profiles featured on a the DMS(DateMySchool\cite{dms2014}) site by creating a fictitious account with the dating service and searching for users from Tufts university.
-This site is popular with college students, as it groups users by school, thereby allowing users to explore the dating market within their academic institution, or with nearby academic institutions, supposedly reducing risk and improving match quality.
-We also create a fictitious Facebook\cite{fb2014} account, and use it to extract a large body of non-anonymous profiles associated with the same university.
-Facebook is very popular for its vast user base.
+We enumerate a large set of (semi)-public but anonymous profiles featured on the DMS (DateMySchool\cite{dms2014}) site by creating a fictitious account with the dating service and searching for users from Tufts University students, as illustrated in Figure \ref{fig:dms_search}.
+This site is popular with college students, as it groups users by school, thereby allowing users to explore the dating market within their academic institution, or with nearby academic institutions, supposedly reducing risk and improving match quality. We take advantage of the school affiliation information in users' profile to reduce the number of Facebook pictures against which we have to match each picture.
+
+We also create a fictitious Facebook\cite{fb2014} account, and use its graph search feature to list all the Tufts University students, as illustrated in \ref{fig:fb_search}. Facebook has a very large user base, and most users list real names, together with vast troves of personal information.
 %TODO: does DMS actually require a linked FB account? -- nope, created the facebook way after the DMS account
 %In fact, DMS requires a linked Facebook account to sign up, meaning we can expect with a high degree of confidence that each anonymous DMS profile has a non-anonymous Facebook profile.
+
 We then use data set aggregation to correlate the anonymous dating site profiles to non-anonymous Facebook profiles using profile photographs of users as a common feature.
 We conjecture that many users will reuse identical photographs on both sites, as they are motivated to select the photos that portray them in the best light.
 Since most people have a relatively small set of recent photographs they consider flattering, it would stand to reason that their recent ``good'' photograph used to create a dating site profile would also be featured on Facebook.
