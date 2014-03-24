@@ -238,3 +238,5 @@ fb_search client, query do |result|
   pic_result = Net::HTTP.get URI.parse(result[:pic])
   File.binwrite "#{result[:name]}.jpg", pic_result
 end
+
+client.close
