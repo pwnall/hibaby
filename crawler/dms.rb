@@ -117,21 +117,22 @@ end
 # @return {Boolean} true if scrolling to the bottom returned more matches,
 #     false otherwise
 def dms_search_scroll(client)
-  last_page_div = client.dom_root!.
-      query_selector_all('.browse[data-page-num]').last
-  last_page_num = last_page_div.attributes['data-page-num'].strip
+  5.times do
+    page_divs = client.dom_root!.
+        query_selector_all('.browse[data-page-num]').length
 
-  scroll_to client, last_page_div
-  client.clear_all
+    footer_div = client.dom_root!.query_selector '.bottomBar'
+    scroll_to client, footer_div
+    client.clear_all
 
-  # HACK(pwnall): should use a DOM breakpoint or some network listener instead
-  #     of this hacked up approach
-  300.times do
-    sleep 2
-    new_last_page_div = client.dom_root.query_selector_all(
-        '.browse[data-page-num]').last
-    new_last_page_num = new_last_page_div.attributes['data-page-num'].strip
-    return true if new_last_page_num != last_page_num
+    # HACK(pwnall): should use a DOM breakpoint or some network listener
+    #     instead of this hacked up approach
+    100.times do
+      sleep 2
+      new_page_divs = client.dom_root.query_selector_all(
+          '.browse[data-page-num]').length
+      return true if new_page_divs != page_divs
+    end
   end
   false
 end
@@ -230,7 +231,8 @@ def dms_search(client, criteria)
 end
 
 # NOTE: allow_popups is necessary to be able to click on the "search" link
-client = WebkitRemote.local window: { width: 1024, height: 768 }
+client = WebkitRemote.local window: { width: 1024, height: 768 },
+    port: ENV['PORT'], chrome_binary: ENV['CHROME']
 dms_login client, 'leemoh@mit.edu', 'moresparkles'
 dms_search client, 'Schools' => ARGV[0] do |result|
   File.write "#{result[:id]}.json", JSON.dump(result)

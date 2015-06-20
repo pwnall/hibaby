@@ -129,24 +129,25 @@ end
 # @return {Boolean} true if scrolling to the bottom returned more matches,
 #     false otherwise
 def fb_search_scroll(client)
-  last_page_div = client.dom_root!.
-      query_selector_all('[id*=BrowseScrollingPagerContainer]').last
-  last_page_id = last_page_div && last_page_div.attributes['id']
+  page_divs = client.dom_root!.
+      query_selector_all('[id*=BrowseScrollingPagerContainer]').length
 
-  footer_div = client.dom_root!.query_selector '#pageFooter'
-  scroll_to client, footer_div
-  client.clear_all
+  10.times do
+    footer_div = client.dom_root!.query_selector '#pageFooter'
+    scroll_to client, footer_div
+    client.clear_all
 
-  # HACK(pwnall): should use a DOM breakpoint or some network listener instead
-  #     of this hacked up approach
-  300.times do
-    sleep 2
-    new_last_page_div = client.dom_root!.
-        query_selector_all('[id*=BrowseScrollingPagerContainer]').last
-    new_last_page_id = new_last_page_div && new_last_page_div.attributes['id']
-    return true if new_last_page_id != last_page_id
+    # HACK(pwnall): should use a DOM breakpoint or some network listener
+    #     instead of this hacked up approach
+    180.times do
+      sleep 2
+      new_page_divs = client.dom_root!.
+          query_selector_all('[id*=BrowseScrollingPagerContainer]').length
+      p [page_divs, new_page_divs]
+      return true if page_divs != new_page_divs
+    end
+    false
   end
-  false
 end
 
 # Extracts results from a FB page div.
